@@ -32,14 +32,13 @@ const difficultyMetric = new Gauge({
     labelNames: ['blockchain_info', rpcuser]
 });
 
-const config = {
+const jsonRPCClient = createJsonRpcClient({
     rpcuser,
     rpcpassword,
     rpchost,
     rpcport,
-    rpcscheme
-};
-const jsonRPCClient = createJsonRpcClient(config);
+    rpcscheme,
+});
 
 const port = 3000;
 const app = express();
@@ -78,7 +77,7 @@ app.get('/metrics', (req, res) => {
 app.use((req, res) => {
     console.warn(`Requested URL ${req.url} resulted in a 404 not found error.`);
 
-    res.status(404).send('404 Not Found');
+    res.status(404).send('This metric doesn\'t exists');
 });
 
 app.listen(port, () => console.info(`Wallet exporter ${symbol} '${label}' http server listening on port ${port}.`));
