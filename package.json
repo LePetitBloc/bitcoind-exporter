@@ -3,16 +3,6 @@
   "version": "1.1.0",
   "description": "Prometheus dash wallet exporter",
   "main": "index.js",
-  "config": {
-    "port": "3000",
-    "label": "wallet",
-    "symbol": "DASH",
-    "rpcuser": "rpcuser",
-    "rpcpassword": "rpcpassword",
-    "rpchost": "127.0.0.1",
-    "rpcport": "9998",
-    "rpcscheme": "http"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
@@ -33,9 +23,9 @@
   "dependencies": {
     "compression": "^1.7.2",
     "dashd-client": "^1.0.1",
+    "dotenv": "^5.0.1",
     "express": "^4.16.2",
     "helmet": "^3.12.0",
-    "prom-client": "^10.2.3",
-    "walletd-rpc": "^0.7.1"
+    "prom-client": "^10.2.3"
   }
 }

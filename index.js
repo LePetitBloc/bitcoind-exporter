@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { resolve } = require('path');
 const express = require('express');
 const helmet = require('helmet');
@@ -6,29 +7,29 @@ const createJsonRpcClient = require('dashd-client');
 const { register, Gauge } = require('prom-client');
 
 const {
-    npm_package_config_port: port,
-    npm_package_config_symbol: symbol,
-    npm_package_config_label: label,
-    npm_package_config_rpcuser: rpcuser,
-    npm_package_config_rpcpassword: rpcpassword,
-    npm_package_config_rpchost: rpchost,
-    npm_package_config_rpcport: rpcport,
+    label = 'wallet',
+    symbol = 'DASH',
+    rpcuser = 'rpcuser',
+    rpcpassword = 'rpcpassword',
+    rpchost = '127.0.0.1',
+    rpcport = '9998',
+    rpcscheme = 'http',
 } = process.env;
 
 const balanceMetric = new Gauge({
     name: 'balance',
     help: `Wallet balance in ${symbol}`,
-    labelNames: ['wallet_info', label]
+    labelNames: ['wallet_info', rpcuser]
 });
 const lastBlockTimeMetric = new Gauge({
     name: 'last_block_time',
     help: 'Time of the last synced block',
-    labelNames: ['wallet_info', label]
+    labelNames: ['wallet_info', rpcuser]
 });
 const difficultyMetric = new Gauge({
     name: 'difficulty',
     help: 'The proof-of-work difficulty as a multiple of the minimum difficulty',
-    labelNames: ['blockchain_info', label]
+    labelNames: ['blockchain_info', rpcuser]
 });
 
 const config = {
@@ -36,9 +37,11 @@ const config = {
     rpcpassword,
     rpchost,
     rpcport,
+    rpcscheme
 };
 const jsonRPCClient = createJsonRpcClient(config);
 
+const port = 3000;
 const app = express();
 
 app.use(compression());
