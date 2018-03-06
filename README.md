@@ -1,2 +1,2 @@
 # dash-wallet-exporter
-Dash headless wallet daemon exporter for Prometheus
+Dash headless wallet daemon exporter for Prometheus.
