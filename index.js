@@ -1,6 +1,6 @@
-require('dotenv').config();
 const { resolve } = require('path');
 const express = require('express');
+const serveStatic = require('serve-static');
 const helmet = require('helmet');
 const compression = require('compression');
 const createJsonRpcClient = require('dashd-client');
@@ -45,8 +45,7 @@ const app = express();
 
 app.use(compression());
 app.use(helmet());
-
-app.get('/', (req,res) => res.sendFile(resolve('./index.html')));
+app.use(serveStatic(resolve('./public')));
 
 app.get('/metrics', (req, res) => {
     res.set('Content-Type', register.contentType);
