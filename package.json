@@ -1,31 +1,37 @@
 {
-  "name": "dashd-prometheus-exporter",
-  "version": "1.4.1",
-  "description": "Prometheus dash wallet exporter",
+  "name": "bitcoind-prometheus-exporter",
+  "version": "2.0.1",
+  "description": "Bitcoind wallet metrics prometheus exporter",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node -r dotenv/config index.js"
+    "test": "dgoss run lepetitbloc/bitcoind-prometheus-exporter",
+    "start": "node -r dotenv/config index.js",
+    "build": "docker build -t lepetitbloc/bitcoind-prometheus-exporter .",
+    "push": "docker push lepetitbloc/bitcoind-prometheus-exporter",
+    "publish": "npm run build && npm run test && npm run push"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lepetitbloc/dashd-prometheus-exporter.git"
+    "url": "git+https://github.com/lepetitbloc/bitcoind-prometheus-exporter.git"
   },
   "keywords": [
-    "dash",
+    "bitcoin",
+    "bitcoind",
+    "monitoring",
     "prometheus",
     "wallet",
-    "monitoring",
+    "metrics",
     "exporter"
   ],
   "author": "lutangar <johan.dufou@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "bitcoind-client": "^2.1.7",
     "compression": "^1.7.2",
-    "dashd-client": "^1.0.1",
     "dotenv": "^5.0.1",
     "express": "^4.16.2",
     "helmet": "^3.12.0",
+    "isomorphic-fetch": "^2.2.1",
     "prom-client": "^10.2.3",
     "serve-static": "^1.13.2"
   }
