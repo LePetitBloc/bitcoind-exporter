@@ -1,0 +1,7 @@
+file:
+  /app:
+    filetype: directory
+    exists: true
+process:
+  node:
+    running: true
