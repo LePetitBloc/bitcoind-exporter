@@ -13,7 +13,7 @@ Most important metrics are:
 * ...
 
 ## Usage
-Edit the `.env` environment file to suit your need and run:
+Edit the `.env` environment file to suit your needs and run:
 ```
 npm start
 ```
@@ -24,7 +24,7 @@ npm start
 >```
 
 ## Usage with other wallets
-The following environment variables are available, just change them to suit your needs:
+The following environment variables are available, that should be enough for *any* **bitcoin** forks:
 > ```
 >symbol=DASH
 >rpcuser=test
