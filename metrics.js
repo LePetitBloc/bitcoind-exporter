@@ -18,8 +18,8 @@ const walletVersionMetric = new Gauge({
     labelNames: ['symbol']
 });
 const walletBalanceMetric = new Gauge({
-    help: `the total balance of the wallet`,
     name: `wallet_balance_total`,
+    help: `the total balance of the wallet`,
     labelNames: ['confirmed', 'unconfirmed', 'immature'],
 });
 const walletTransationsMetric = new Gauge({
