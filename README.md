@@ -3,8 +3,8 @@ Bitcoind wallet metrics **Prometheus** exporter.
 
 > `bitcoind-prometheus-exporter` is compatible with most **bitcoin** forks.
 
-Produce **wallet** metrics, own **addresses** but also **blockchain** infos.
-Most important metrics are:
+Produce **blockchain**, **wallet** and **addresses** metrics.
+Most relevant metrics are:
 * wallet total balance
 * wallet version
 * if the wallet is unlocked
