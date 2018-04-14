@@ -23,7 +23,7 @@
     "metrics",
     "exporter"
   ],
-  "author": "lutangar <johan.dufou@gmail.com>",
+  "author": "Johan Dufour <johan@lepetitbloc.net>",
   "license": "MIT",
   "dependencies": {
     "bitcoind-client": "^2.1.7",
