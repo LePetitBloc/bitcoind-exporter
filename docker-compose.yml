@@ -1,0 +1,18 @@
+version: '2'
+services:
+  bitcoind:
+    image: kylemanna/bitcoind
+    command: [
+      "-testnet",
+      "-rpcallowip=::/0",
+      "-rpcuser=test",
+      "-rpcpassword=test",
+    ]
+    environment:
+      - DISABLEWALLET=0
+  exporter:
+    build: .
+    ports:
+      - "3000:3000"
+    links:
+      - bitcoind
