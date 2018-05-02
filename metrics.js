@@ -15,12 +15,12 @@ const difficultyMetric = new Gauge({
 const walletVersionMetric = new Gauge({
     name: 'wallet_version',
     help: 'the wallet version',
-    labelNames: ['symbol']
+    labelNames: ['ticker']
 });
 const walletBalanceMetric = new Gauge({
     name: `wallet_balance_total`,
     help: `the total balance of the wallet`,
-    labelNames: ['confirmed', 'unconfirmed', 'immature'],
+    labelNames: ['status'],
 });
 const walletTransationsMetric = new Gauge({
     name: 'wallet_transactions_total',
