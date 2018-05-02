@@ -1,6 +1,6 @@
 {
   "name": "bitcoind-prometheus-exporter",
-  "version": "2.0.1",
+  "version": "2.1.1",
   "description": "Bitcoind wallet metrics prometheus exporter",
   "main": "index.js",
   "scripts": {
