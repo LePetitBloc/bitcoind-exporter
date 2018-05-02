@@ -1,4 +1,8 @@
 # bitcoind-prometheus-exporter
+
+[![NPM package version][npm-svg]][npm-url]
+[![Docker Build Status][hub-svg]][hub-url]
+
 Bitcoind wallet metrics **Prometheus** exporter.
 
 > `bitcoind-prometheus-exporter` is compatible with most **bitcoin** forks.
@@ -26,7 +30,7 @@ npm start
 ## Usage with other wallets
 The following environment variables are available, that should be enough for *any* **bitcoin** forks:
 > ```
->symbol=DASH
+>ticker=DASH
 >rpcuser=test
 >rpcpassword=1cf98b57-5i09-4fa1-9c07-2e28cb2cb47b
 >rpchost=127.0.0.1
@@ -61,11 +65,13 @@ chain_difficulty 3511060552899.72
 
 # HELP wallet_version the wallet version
 # TYPE wallet_version gauge
-wallet_version{symbol="BTC"} 71000
+wallet_version{ticker="BTC"} 71000
 
 # HELP wallet_balance_total the total balance of the wallet
 # TYPE wallet_balance_total gauge
-wallet_balance_total{unconfirmed="2.7345",immature="0",confirmed="42.73453501"} 42.73453501
+wallet_balance_total{status="unconfirmed"} 2.7345
+wallet_balance_total{status="immature"} 0
+wallet_balance_total{status="confirmed"} 42.73453501
 
 # HELP wallet_transactions_total the total number of transactions in the wallet
 # TYPE wallet_transactions_total gauge
@@ -99,3 +105,8 @@ address_balance_total{address="1QAm6J6jLmcm7ce87ujrSdmjPNX9fgRUYZ"} 1.72770032
 
 ## Licence
 MIT
+
+[npm-svg]: https://img.shields.io/npm/v/bitcoind-prometheus-exporter.svg
+[npm-url]: https://npmjs.org/package/bitcoind-prometheus-exporter
+[hub-url]: https://hub.docker.com/r/lepetitbloc/bitcoind-prometheus-exporter/
+[hub-svg]: https://img.shields.io/docker/build/lepetitbloc/bitcoind-prometheus-exporter.svg
