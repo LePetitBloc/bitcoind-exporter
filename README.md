@@ -109,4 +109,4 @@ MIT
 [npm-svg]: https://img.shields.io/npm/v/bitcoind-prometheus-exporter.svg
 [npm-url]: https://npmjs.org/package/bitcoind-prometheus-exporter
 [hub-url]: https://hub.docker.com/r/lepetitbloc/bitcoind-prometheus-exporter/
-[hub-svg]: https://img.shields.io/docker/build/lepetitbloc/bitcoind-prometheus-exporter.svg
+[hub-svg]: https://img.shields.io/docker/pulls/lepetitbloc/bitcoind-prometheus-exporter.svg
