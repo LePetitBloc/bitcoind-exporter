@@ -16,11 +16,11 @@ const {
 } = require('./metrics');
 
 const {
-    symbol = 'BTC',
+    ticker = 'BTC',
     rpcuser = 'rpcuser',
     rpcpassword = 'rpcpassword',
     rpchost = '127.0.0.1',
-    rpcport = '9999',
+    rpcport = '8332',
     rpcscheme = 'http',
 } = process.env;
 
@@ -47,6 +47,10 @@ const metricsHandler = (req, res) => {
         )
     ;
     const walletInfoPromise = call('getwalletinfo')
+        .then(result => {
+            console.log(result);
+            return result;
+        })
         .then(
             ({
                  unconfirmed_balance,
@@ -59,14 +63,14 @@ const metricsHandler = (req, res) => {
                  unlocked_until,
                  paytxfee,
              }) => {
-                walletVersionMetric.set({ symbol }, walletversion);
-                walletBalanceMetric.set({
-                    unconfirmed: unconfirmed_balance,
-                    immature: immature_balance,
-                    confirmed: balance,
-                }, balance);
+
+
+                walletVersionMetric.set({ ticker }, walletversion);
+                walletBalanceMetric.set({ status: 'unconfirmed' }, unconfirmed_balance);
+                walletBalanceMetric.set({ status: 'immature' }, immature_balance);
+                walletBalanceMetric.set({ status: 'confirmed' }, balance);
                 walletTransationsMetric.set(txcount);
-                unlockedUntilMetric.set(unlocked_until);
+                unlockedUntilMetric.set(unlocked_until || 0);
                 keyPoolOldestMetric.set(keypoololdest);
                 keyPoolSizeMetric.set(keypoolsize);
                 transactionFeeMetric.set(paytxfee);
@@ -91,7 +95,14 @@ const metricsHandler = (req, res) => {
         difficultyPromise
     ])
         .then(() => res.end(register.metrics()))
-        .catch((error) =>  res.status(500).send(error))
+        .catch((error) => {
+            if (error.code === -28) {
+                res.status(503).send(error.message);
+            }
+
+            console.error(error);
+            return res.status(500).send(error.message)
+        })
     ;
 };
 
