@@ -18,7 +18,7 @@ const walletVersionMetric = new Gauge({
     labelNames: ['ticker']
 });
 const walletBalanceMetric = new Gauge({
-    name: `bitcoind_wallet_balance_total`,
+    name: `bitcoind_wallet_balance`,
     help: `the total balance of the wallet`,
     labelNames: ['status'],
 });
@@ -31,7 +31,7 @@ const keyPoolOldestMetric = new Gauge({
     help: 'the timestamp of the oldest pre-generated key in the key pool',
 });
 const keyPoolSizeMetric = new Gauge({
-    name: 'bitcoind_wallet_key_pool_size_total',
+    name: 'bitcoind_wallet_key_pool_number',
     help: 'How many new keys are pre-generated.',
 });
 const unlockedUntilMetric = new Gauge({
@@ -43,7 +43,7 @@ const transactionFeeMetric = new Gauge({
     help: `the transaction fee configuration, set in Unit/kB`,
 });
 const addressBalanceMetric = new Gauge({
-    name: `bitcoind_address_balance_total`,
+    name: `bitcoind_address_balance`,
     help: `address balance`,
     labelNames: ['address']
 });
