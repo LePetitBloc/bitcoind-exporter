@@ -47,10 +47,6 @@ const metricsHandler = (req, res) => {
         )
     ;
     const walletInfoPromise = call('getwalletinfo')
-        .then(result => {
-            console.log(result);
-            return result;
-        })
         .then(
             ({
                  unconfirmed_balance,
@@ -96,12 +92,16 @@ const metricsHandler = (req, res) => {
     ])
         .then(() => res.end(register.metrics()))
         .catch((error) => {
+            console.error(error);
+
+            let code = 500;
             if (error.code === -28) {
-                res.status(503).send(error.message);
+                code = 503;
+            } else if (error.code === 403) {
+                code = 403;
             }
 
-            console.error(error);
-            return res.status(500).send(error.message)
+            return res.status(code).send(`# ${error.message}\n`)
         })
     ;
 };
