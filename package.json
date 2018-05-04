@@ -1,6 +1,6 @@
 {
   "name": "bitcoind-exporter",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "description": "Bitcoind metrics prometheus exporter",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,8 @@
     "start": "node -r dotenv/config index.js",
     "build": "docker build -t lepetitbloc/bitcoind-exporter .",
     "push": "docker push lepetitbloc/bitcoind-exporter",
-    "publish": "npm run build && npm run test && npm run push"
+    "publish": "npm run build && npm run test && npm run push",
+    "demo": "docker-compose up"
   },
   "repository": {
     "type": "git",

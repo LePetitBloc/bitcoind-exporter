@@ -13,6 +13,6 @@ services:
   exporter:
     build: .
     ports:
-      - "3000:3000"
+      - "9439:9439"
     links:
       - bitcoind

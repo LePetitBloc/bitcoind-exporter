@@ -54,7 +54,7 @@ docker run -d --restart always --name my-exporter -p 9439:9439 -v /path/to/my/co
 >docker run --name my-exporter -p 9439:9439 -v /path/to/my/conf:/app/.env --link my-wallet lepetitbloc/bitcoind-exporter
 >```
 
-## Example
+## Example metrics
 When visiting the metrics URL http://localhost:9439/metrics the following **metrics** are produced:
 ```
 # HELP best_block_index The block height or index
@@ -103,6 +103,12 @@ wallet_pay_tx_fee_per_kilo_bytes 0
 # TYPE address_balance_total gauge
 address_balance_total{address="1FxZE15d8bt381EuDckdDdp7vw8FUiLzu6"} 41.00683469
 address_balance_total{address="1QAm6J6jLmcm7ce87ujrSdmjPNX9fgRUYZ"} 1.72770032
+```
+
+## Demo
+You can test this exporter with `docker-compose`:
+```
+docker-compose up
 ```
 
 ## Resources
