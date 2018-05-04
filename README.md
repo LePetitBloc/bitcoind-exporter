@@ -21,7 +21,7 @@ Edit the `.env` environment file to suit your needs and run:
 ```
 npm start
 ```
-> `bitcoind-prometheus-exporter` uses the `bitcoind` **JSON-RPC** API under the hood and need those credentials:
+> `bitcoind-exporter` uses the `bitcoind` **JSON-RPC** API under the hood and need those credentials:
 > ```
 >rpcuser=test
 >rpcpassword=1cf98b57-5i09-4fa1-9c07-2e28cb2cb47b
@@ -51,7 +51,7 @@ docker run -d --restart always --name my-exporter -p 9439:9439 -v /path/to/my/co
 
 >An easy hack could be to directly use your wallet conf to feed your exporter `env`:
 >```
->docker run --name my-exporter -p 9439:9439 -v /path/to/my/conf:/app/.env --link my-wallet lepetitbloc/bitcoind-prometheus-exporter
+>docker run --name my-exporter -p 9439:9439 -v /path/to/my/conf:/app/.env --link my-wallet lepetitbloc/bitcoind-exporter
 >```
 
 ## Example
@@ -112,7 +112,7 @@ address_balance_total{address="1QAm6J6jLmcm7ce87ujrSdmjPNX9fgRUYZ"} 1.72770032
 ## Licence
 MIT
 
-[npm-svg]: https://img.shields.io/npm/v/bitcoind-prometheus-exporter.svg
-[npm-url]: https://npmjs.org/package/bitcoind-prometheus-exporter
-[hub-url]: https://hub.docker.com/r/lepetitbloc/bitcoind-prometheus-exporter/
-[hub-svg]: https://img.shields.io/docker/pulls/lepetitbloc/bitcoind-prometheus-exporter.svg
+[npm-svg]: https://img.shields.io/npm/v/bitcoind-exporter.svg
+[npm-url]: https://npmjs.org/package/bitcoind-exporter
+[hub-url]: https://hub.docker.com/r/lepetitbloc/bitcoind-exporter/
+[hub-svg]: https://img.shields.io/docker/pulls/lepetitbloc/bitcoind-exporter.svg
