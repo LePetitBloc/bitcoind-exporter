@@ -57,52 +57,52 @@ docker run -d --restart always --name my-exporter -p 9439:9439 -v /path/to/my/co
 ## Example metrics
 When visiting the metrics URL http://localhost:9439/metrics the following **metrics** are produced:
 ```
-# HELP best_block_index The block height or index
-# TYPE best_block_index gauge
-best_block_index 69019
+# HELP bitcoind_best_block_index The block height or index
+# TYPE bitcoind_best_block_index gauge
+bitcoind_best_block_index 69019
 
-# HELP best_block_timestamp_seconds The block time in seconds since epoch (Jan 1 1970 GMT)
-# TYPE best_block_timestamp_seconds gauge
-best_block_timestamp_seconds 1522746083
+# HELP bitcoind_best_block_timestamp_seconds The block time in seconds since epoch (Jan 1 1970 GMT)
+# TYPE bitcoind_best_block_timestamp_seconds gauge
+bitcoind_best_block_timestamp_seconds 1522746083
 
-# HELP chain_difficulty The proof-of-work difficulty as a multiple of the minimum difficulty
-# TYPE chain_difficulty gauge
-chain_difficulty 3511060552899.72
+# HELP bitcoind_chain_difficulty The proof-of-work difficulty as a multiple of the minimum difficulty
+# TYPE bitcoind_chain_difficulty gauge
+bitcoind_chain_difficulty 3511060552899.72
 
-# HELP wallet_version the wallet version
-# TYPE wallet_version gauge
-wallet_version{ticker="BTC"} 71000
+# HELP bitcoind_wallet_version the wallet version
+# TYPE bitcoind_wallet_version gauge
+bitcoind_wallet_version{ticker="BTC"} 71000
 
-# HELP wallet_balance_total the total balance of the wallet
-# TYPE wallet_balance_total gauge
-wallet_balance_total{status="unconfirmed"} 2.7345
-wallet_balance_total{status="immature"} 0
-wallet_balance_total{status="confirmed"} 42.73453501
+# HELP bitcoind_wallet_balance_total the total balance of the wallet
+# TYPE bitcoind_wallet_balance_total gauge
+bitcoind_wallet_balance_total{status="unconfirmed"} 2.7345
+bitcoind_wallet_balance_total{status="immature"} 0
+bitcoind_wallet_balance_total{status="confirmed"} 42.73453501
 
-# HELP wallet_transactions_total the total number of transactions in the wallet
-# TYPE wallet_transactions_total gauge
-wallet_transactions_total 77
+# HELP bitcoind_wallet_transactions_total the total number of transactions in the wallet
+# TYPE bitcoind_wallet_transactions_total gauge
+bitcoind_wallet_transactions_total 77
 
-# HELP wallet_key_pool_oldest_timestamp_seconds the timestamp of the oldest pre-generated key in the key pool
-# TYPE wallet_key_pool_oldest_timestamp_seconds gauge
-wallet_key_pool_oldest_timestamp_seconds 1516231938
+# HELP bitcoind_wallet_key_pool_oldest_timestamp_seconds the timestamp of the oldest pre-generated key in the key pool
+# TYPE bitcoind_wallet_key_pool_oldest_timestamp_seconds gauge
+bitcoind_wallet_key_pool_oldest_timestamp_seconds 1516231938
 
-# HELP wallet_key_pool_size_total How many new keys are pre-generated.
-# TYPE wallet_key_pool_size_total gauge
-wallet_key_pool_size_total 1000
+# HELP bitcoind_wallet_key_pool_size_total How many new keys are pre-generated.
+# TYPE bitcoind_wallet_key_pool_size_total gauge
+bitcoind_wallet_key_pool_size_total 1000
 
-# HELP wallet_unlocked_until_timestamp_seconds the timestamp that the wallet is unlocked for transfers, or 0 if the wallet is locked
-# TYPE wallet_unlocked_until_timestamp_seconds gauge
-wallet_unlocked_until_timestamp_seconds 0
+# HELP bitcoind_wallet_unlocked_until_timestamp_seconds the timestamp that the wallet is unlocked for transfers, or 0 if the wallet is locked
+# TYPE bitcoind_wallet_unlocked_until_timestamp_seconds gauge
+bitcoind_wallet_unlocked_until_timestamp_seconds 0
 
-# HELP wallet_pay_tx_fee_per_kilo_bytes the transaction fee configuration, set in Unit/kB
-# TYPE wallet_pay_tx_fee_per_kilo_bytes gauge
-wallet_pay_tx_fee_per_kilo_bytes 0
+# HELP bitcoind_wallet_pay_tx_fee_per_kilo_bytes the transaction fee configuration, set in Unit/kB
+# TYPE bitcoind_wallet_pay_tx_fee_per_kilo_bytes gauge
+bitcoind_wallet_pay_tx_fee_per_kilo_bytes 0
 
-# HELP address_balance_total address balance
-# TYPE address_balance_total gauge
-address_balance_total{address="1FxZE15d8bt381EuDckdDdp7vw8FUiLzu6"} 41.00683469
-address_balance_total{address="1QAm6J6jLmcm7ce87ujrSdmjPNX9fgRUYZ"} 1.72770032
+# HELP bitcoind_address_balance_total address balance
+# TYPE bitcoind_address_balance_total gauge
+bitcoind_address_balance_total{address="1FxZE15d8bt381EuDckdDdp7vw8FUiLzu6"} 41.00683469
+bitcoind_address_balance_total{address="1QAm6J6jLmcm7ce87ujrSdmjPNX9fgRUYZ"} 1.72770032
 ```
 
 ## Demo
