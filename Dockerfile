@@ -10,6 +10,6 @@ WORKDIR /app/
 
 RUN npm i
 
-EXPOSE 3000
+EXPOSE 9439
 
 ENTRYPOINT ["node", "-r", "dotenv/config", "index.js"]

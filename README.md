@@ -1,11 +1,11 @@
-# bitcoind-prometheus-exporter
+# bitcoind-exporter
 
 [![NPM package version][npm-svg]][npm-url]
 [![Docker Build Status][hub-svg]][hub-url]
 
 Bitcoind wallet metrics **Prometheus** exporter.
 
-> `bitcoind-prometheus-exporter` is compatible with most **bitcoin** forks.
+> `bitcoind-exporter` is compatible with most **bitcoin** forks.
 
 Produce **blockchain**, **wallet** and **addresses** metrics.
 Most relevant metrics are:
@@ -39,17 +39,23 @@ The following environment variables are available, that should be enough for *an
 >```
 
 ### Docker
+Using environment variables:
 ```
-docker run --name my-exporter -p 3000:3000 -e "rpcuser=myrpcuser" -e "rpcpassword=myrpcpassword" -e "rpchost=my-wallet" --link my-wallet lepetitbloc/bitcoind-prometheus-exporter
+docker run -d --restart always --name my-exporter -p 9439:9439 -e "rpcuser=myrpcuser" -e "rpcpassword=myrpcpassword" -e "rpchost=my-wallet" --link my-wallet lepetitbloc/bitcoind-exporter
 ````
+
+Using a `.env` file:
+```
+docker run -d --restart always --name my-exporter -p 9439:9439 -v /path/to/my/conf:/app/.env --link my-wallet lepetitbloc/bitcoind-exporter
+```
 
 >An easy hack could be to directly use your wallet conf to feed your exporter `env`:
 >```
->docker run --name my-exporter -p 3000:3000 -v /path/to/my/conf:/app/.env --link my-wallet lepetitbloc/bitcoind-prometheus-exporter
+>docker run --name my-exporter -p 9439:9439 -v /path/to/my/conf:/app/.env --link my-wallet lepetitbloc/bitcoind-prometheus-exporter
 >```
 
 ## Example
-When visiting the metrics URL http://localhost:3000/metrics the following **metrics** are produced:
+When visiting the metrics URL http://localhost:9439/metrics the following **metrics** are produced:
 ```
 # HELP best_block_index The block height or index
 # TYPE best_block_index gauge

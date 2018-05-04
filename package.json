@@ -1,18 +1,18 @@
 {
-  "name": "bitcoind-prometheus-exporter",
-  "version": "2.1.2",
-  "description": "Bitcoind wallet metrics prometheus exporter",
+  "name": "bitcoind-exporter",
+  "version": "2.2.2",
+  "description": "Bitcoind metrics prometheus exporter",
   "main": "index.js",
   "scripts": {
-    "test": "dgoss run lepetitbloc/bitcoind-prometheus-exporter",
+    "test": "dgoss run lepetitbloc/bitcoind-exporter",
     "start": "node -r dotenv/config index.js",
-    "build": "docker build -t lepetitbloc/bitcoind-prometheus-exporter .",
-    "push": "docker push lepetitbloc/bitcoind-prometheus-exporter",
+    "build": "docker build -t lepetitbloc/bitcoind-exporter .",
+    "push": "docker push lepetitbloc/bitcoind-exporter",
     "publish": "npm run build && npm run test && npm run push"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lepetitbloc/bitcoind-prometheus-exporter.git"
+    "url": "git+https://github.com/lepetitbloc/bitcoind-exporter.git"
   },
   "keywords": [
     "bitcoin",

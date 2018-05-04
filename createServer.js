@@ -5,7 +5,7 @@ const helmet = require('helmet');
 const compression = require('compression');
 
 const createServer = metricsHandler => {
-    const port = 3000;
+    const port = 9439;
     const app = express();
 
     app.use(compression());
@@ -17,7 +17,7 @@ const createServer = metricsHandler => {
     app.use((req, res) => {
         console.warn(`Requested URL ${req.url} resulted in a 404 not found error.`);
 
-        res.status(404).send('This metric doesn\'t exists');
+        res.status(404).send('# This metric doesn\'t exists\n');
     });
 
     app.listen(port, () => console.info(`Wallet exporter started on http://localhost:${port}`));
