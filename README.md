@@ -3,7 +3,7 @@
 [![NPM package version][npm-svg]][npm-url]
 [![Docker Build Status][hub-svg]][hub-url]
 
-Bitcoind wallet metrics **Prometheus** exporter.
+Bitcoind metrics **Prometheus** exporter.
 
 > `bitcoind-exporter` is compatible with most **bitcoin** forks.
 
